@@ -13,22 +13,37 @@
 // Your code is thus easier to reason through.
 
 // Shadowing:
+// fn main() {
+//     //Shadowing is different from marking a variable as mut, because we’ll get a compile-time error
+//     // if we accidentally try to reassign to this variable without using the let keyword.
+//     // By using let, we can perform a few transformations on a value but have the variable
+//     // be immutable after those transformations have been completed.
+//     let x = 5;
+
+//     let x = x + 1;
+
+//     let x = x * 2;
+
+//     println!("The value of x is: {}", x);
+
+//     //The other difference between mut and shadowing is that because we’re effectively creating a new variable when we use the let keyword again,
+//     // we can change the type of the value but reuse the same name. 
+//     let spaces = "   ";
+//     let spaces = spaces.len();
+//     println!("the number of spaces is {}", spaces);
+// }
+
+// Destructuring a tuple:
 fn main() {
-    //Shadowing is different from marking a variable as mut, because we’ll get a compile-time error
-    // if we accidentally try to reassign to this variable without using the let keyword.
-    // By using let, we can perform a few transformations on a value but have the variable
-    // be immutable after those transformations have been completed.
-    let x = 5;
 
-    let x = x + 1;
+    //The variable tup binds to the entire tuple, because a tuple is considered a single compound element.
+    // To get the individual values out of a tuple, we can use pattern matching to destructure a tuple value, like this:
+    let tup: (i32, f64, u8) = (500, 6.4, 1);
 
-    let x = x * 2;
+    let (x, y, z) = tup;
 
     println!("The value of x is: {}", x);
+    println!("The value of y is: {}", y);
+    println!("The value of z is: {}", z);
 
-    //The other difference between mut and shadowing is that because we’re effectively creating a new variable when we use the let keyword again,
-    // we can change the type of the value but reuse the same name. 
-    let spaces = "   ";
-    let spaces = spaces.len();
-    println!("the length of spaces is {}", spaces)
 }
