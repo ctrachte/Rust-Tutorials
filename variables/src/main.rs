@@ -58,18 +58,29 @@
 // }
 
 // Loop example:
+// fn main() {
+//     // Before the loop, we declare a variable named counter and initialize it to 0.
+//     let mut counter = 0;
+//     // Then we declare a variable named result to hold the value returned from the loop.
+//     let result = loop {
+//         // On every iteration of the loop, we add 1 to the counter variable, and then check whether the counter is equal to 10. 
+//         counter += 1;
+//         if counter == 10 {
+//             // When it is, we use the break keyword with the value counter * 2. 
+//             break counter * 2; // After the loop, we use a semicolon to end the statement that assigns the value to result.
+//         }
+//     };
+//     // Finally, we print the value in result, which in this case is 20.
+//     println!("The result is {}", result);
+// }
+
+// Indicating a return type
+fn five() -> i32 {
+    5
+}
+
 fn main() {
-    // Before the loop, we declare a variable named counter and initialize it to 0.
-    let mut counter = 0;
-    // Then we declare a variable named result to hold the value returned from the loop.
-    let result = loop {
-        // On every iteration of the loop, we add 1 to the counter variable, and then check whether the counter is equal to 10. 
-        counter += 1;
-        if counter == 10 {
-            // When it is, we use the break keyword with the value counter * 2. 
-            break counter * 2; // After the loop, we use a semicolon to end the statement that assigns the value to result.
-        }
-    };
-    // Finally, we print the value in result, which in this case is 20.
-    println!("The result is {}", result);
+    let x = five();
+
+    println!("The value of x is: {}", x);
 }
