@@ -75,15 +75,33 @@
 // }
 
 // Indicating a return type
-fn five() -> i32 {
-    5
-}
-fn plus_one(x: i32) -> i32 {
-    x + 1
-}
+// fn five() -> i32 {
+//     5
+// }
+// fn plus_one(x: i32) -> i32 {
+//     x + 1
+// }
+// fn main() {
+//     let x = five();
+//     let five_plus_one = plus_one(five());
+//     println!("The value of x is: {}", x);
+//     println!("The value of x plus one is: {}", five_plus_one);
+// }
+
+// understanding ownership and why Rust is not garbage collected
 fn main() {
-    let x = five();
-    let five_plus_one = plus_one(five());
-    println!("The value of x is: {}", x);
-    println!("The value of x plus one is: {}", five_plus_one);
-}
+    {
+        //The double colon (::) is an operator that allows us 
+        // to namespace this particular 'from' function under the String type. 
+        // This type is allocated on the heap and as such is able to store 
+        // an amount of text that is unknown to us at compile time. 
+        let s = String::from("hello"); // s is valid from this point forward
+
+        // do stuff with s
+        println!("The value of s is: {}", s);
+
+    }  // this scope is now over, and s is no longer valid
+
+}// When a variable goes out of scope, Rust calls a special function for us. This function is called drop,
+//  and it’s where the author of String can put the code to return the memory. Rust calls drop automatically at the closing curly bracket.     
+
