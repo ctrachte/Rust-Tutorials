@@ -83,8 +83,7 @@ fn plus_one(x: i32) -> i32 {
 }
 fn main() {
     let x = five();
-    let five_plus_one = plus_one(x);
+    let five_plus_one = plus_one(five());
     println!("The value of x is: {}", x);
     println!("The value of x plus one is: {}", five_plus_one);
-
 }
